@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hotspot WiFi</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+    <div class="w-full max-w-xs">
+        <h1 class="mb-6 text-center text-3xl font-bold">WiFi - UNDB</h1>
+        <form method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            {% csrf_token %}
+            <div class="mb-4">
+                <input type="text" name="{{ form.nome.name }}" id="id_{{ form.nome.name }}" class="bg-gray-200 focus:bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="{{ form.nome.value|default_if_none:'' }}" placeholder="Nome">
+            </div>
+            <div class="mb-4">
+                <input type="text" name="{{ form.cpf.name }}" id="id_{{ form.cpf.name }}" class="bg-gray-200 focus:bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="{{ form.cpf.value|default_if_none:'' }}" placeholder="CPF">
+            </div>            
+            <div class="mb-4">
+                <input type="email" name="{{ form.email.name }}" id="id_{{ form.email.name }}" class="bg-gray-200 focus:bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="{{ form.email.value|default_if_none:'' }}" placeholder="Email">
+            </div>
+            <div class="mb-6">
+                <input type="tel" name="{{ form.telefone.name }}" id="id_{{ form.telefone.name }}" class="bg-gray-200 focus:bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" value="{{ form.telefone.value|default_if_none:'' }}" placeholder="Telefone">
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Conectar
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
